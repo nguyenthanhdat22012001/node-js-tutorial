@@ -15,6 +15,14 @@ Content-Type: application/json
     "password": "hoho"
 }
 
+
+
+###
+GET http://localhost:5000/api/task/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTNiMTg4ZjdiZmI3NDk2NzJjMDM2YTgiLCJpYXQiOjE2MzEyNjI4NjN9.TYpmaXaUyecIIicnHHEaCg7fWUmKsIuKVZcDnQpw_ag
+
+
 ###
 POST http://localhost:5000/api/task
 Content-Type: application/json
@@ -35,3 +43,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTNiM
     "description": "",
     "status": "WORKING"
 }
+
+###
+DELETE  http://localhost:5000/api/task/613b20d6ff3c50b0c6f56e53
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTNiMTg4ZjdiZmI3NDk2NzJjMDM2YTgiLCJpYXQiOjE2MzEyNjI4NjN9.TYpmaXaUyecIIicnHHEaCg7fWUmKsIuKVZcDnQpw_ag
