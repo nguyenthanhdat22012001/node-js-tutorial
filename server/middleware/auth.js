@@ -12,7 +12,7 @@ const verifyToken = (req,res,next) => {
     try {
         const decode = jwt.verify(token,process.env.ACCESS_TOKEN_SECRET);
 
-        req.body.userId = decode.userId;
+        req.body.user = decode.user;
         next();
 
     } catch (error) {
@@ -24,4 +24,31 @@ const verifyToken = (req,res,next) => {
     }
 }
 
-module.exports = verifyToken;
+const verifyRefeshToken = (req,res,next) => {
+    const { refreshToken } = req.body;
+
+    if(!refreshToken)
+        return res
+            .status(401)
+            .json({message: 'refresh token not found'});
+
+    try {
+         jwt.verify(refreshToken,process.env.REFRESH_TOKEN_SECRET,(err,data)=>{
+            console.log(err,data);
+
+            if(err) return res.status(403).json({message: 'refresh token Invalid'});
+            
+            req.body.user = data.user;
+            next();
+        });
+
+    } catch (error) {
+        console.log(error);
+        console.log(token);
+        return res
+            .status(403)
+            .json({success:false, message: "Invalid token"});
+    }
+}
+
+module.exports = {verifyToken,verifyRefeshToken};

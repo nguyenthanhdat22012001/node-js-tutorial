@@ -1,7 +1,7 @@
 const express = require('express');
 const taskModel = require('../models/Task');
 const router = express.Router();
-const verifyToken = require('../middleware/auth');
+const {verifyToken} = require('../middleware/auth');
 
 const jwt = require('jsonwebtoken');
 const { json } = require('express');
